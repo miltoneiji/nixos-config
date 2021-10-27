@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+choice=$(echo -e "Shutdown\nReboot" | dmenu)
+
+case "$choice" in
+  Shutdown) systemctl poweroff -i & ;;
+  Reboot) systemctl reboot & ;;
+esac

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+choice=$(echo -e "browser\nemacs" | dmenu)
+
+case "$choice" in
+  browser) firefox & ;;
+  emacs) emacs & ;;
+esac

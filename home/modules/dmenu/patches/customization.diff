@@ -1,0 +1,39 @@
+commit 159db2288f99ba2cbb863b7c6909d78a9548cbe0
+Author: Milton Eiji Takamura <miltontakamura@gmail.com>
+Date:   Sat Oct 23 14:01:30 2021 -0300
+
+    Enable center
+
+diff --git a/config.def.h b/config.def.h
+index 890a9d4..dd95388 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -2,21 +2,21 @@
+ /* Default settings; can be overriden by command line. */
+ 
+ static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
+-static int centered = 0;                    /* -c option; centers dmenu on screen */
+-static int min_width = 500;                    /* minimum width when centered */
++static int centered = 1;                    /* -c option; centers dmenu on screen */
++static int min_width = 1000;                /* minimum width when centered */
+ /* -fn option overrides fonts[0]; default X11 font or font set */
+ static const char *fonts[] = {
+-	"monospace:size=10"
++	"JetBrainsMono:size=15"
+ };
+ static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
+ static const char *colors[SchemeLast][2] = {
+ 	/*     fg         bg       */
+-	[SchemeNorm] = { "#bbbbbb", "#222222" },
+-	[SchemeSel] = { "#eeeeee", "#005577" },
+-	[SchemeOut] = { "#000000", "#00ffff" },
++	[SchemeNorm] = { "#FBFBFB", "#050E0E" },
++	[SchemeSel] = { "#FBFBFB", "#33A1DB" },
++	[SchemeOut] = { "#FF0000", "#FF0000" },
+ };
+ /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
+-static unsigned int lines      = 0;
++static unsigned int lines      = 10;
+ 
+ /*
+  * Characters not considered part of a word while deleting words

@@ -1,0 +1,50 @@
+commit 54d28b7d3b95908bd71f184ff5e0abe0d7db9408
+Author: Milton Eiji Takamura <miltontakamura@gmail.com>
+Date:   Sun Oct 24 11:11:04 2021 -0300
+
+    Apply fullscreen with fixes
+
+diff --git a/config.def.h b/config.def.h
+index 259d703..20e554b 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -82,6 +82,7 @@ static Key keys[] = {
+ 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+ 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+ 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
++	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
+ 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+ 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+ 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+diff --git a/dwm.c b/dwm.c
+index 0a41607..9ff0447 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -200,6 +200,7 @@ static void sendmon(Client *c, Monitor *m);
+ static void setclientstate(Client *c, long state);
+ static void setfocus(Client *c);
+ static void setfullscreen(Client *c, int fullscreen);
++static void fullscreen(const Arg *arg);
+ static void setgaps(const Arg *arg);
+ static void setlayout(const Arg *arg);
+ static void setmfact(const Arg *arg);
+@@ -1549,6 +1550,19 @@ setgaps(const Arg *arg)
+ 	arrange(selmon);
+ }
+ 
++Layout *last_layout;
++void
++fullscreen(const Arg *arg)
++{
++	if (selmon->showbar) {
++		for(last_layout = (Layout *)layouts; last_layout != selmon->lt[selmon->sellt]; last_layout++);
++		setlayout(&((Arg) { .v = &layouts[2] }));
++	} else {
++		setlayout(&((Arg) { .v = last_layout }));
++	}
++	togglebar(arg);
++}
++
+ void
+ setlayout(const Arg *arg)
+ {

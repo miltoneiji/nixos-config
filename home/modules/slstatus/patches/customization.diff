@@ -1,0 +1,23 @@
+commit 4a68a999b81936e94ce796485c49fe1801024c83
+Author: Milton Eiji Takamura <miltontakamura@gmail.com>
+Date:   Sun Oct 24 11:28:32 2021 -0300
+
+    Customization
+
+diff --git a/config.def.h b/config.def.h
+index e06be66..954d6f2 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -62,6 +62,10 @@ static const char unknown_str[] = "n/a";
+  * wifi_essid          WiFi ESSID                      interface name (wlan0)
+  */
+ static const struct arg args[] = {
+-	/* function format          argument */
+-	{ datetime, "%s",           "%F %T" },
++	/* function      format            argument */
++  { wifi_essid,    "[ wifi: %s ] ",  "wlp0s20f3" },
++  { run_command,   "[ vol: %4s ] ",   "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
++  { battery_perc,  "[ bat: %s%% ",   "BAT0" },
++  { battery_state, "%s ] ",          "BAT0" },
++	{ datetime,      "[ %s ]",         "%a, %b %d %H:%M" },
+ };
