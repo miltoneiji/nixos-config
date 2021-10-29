@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -100,6 +100,7 @@
     mediainfo # info about videos and audio files
     vlc       # video player
     nitrogen  # wallpaper browser and setter for X11
+    spotify   # music player
 
     # ruby development
     ruby
@@ -107,6 +108,11 @@
     # clojure development
     clojure
     leiningen
+  ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
+    "spotify-unwrapped"
   ];
 
   fonts.fonts = with pkgs; [
