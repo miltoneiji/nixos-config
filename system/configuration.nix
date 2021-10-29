@@ -100,6 +100,13 @@
     mediainfo # info about videos and audio files
     vlc       # video player
     nitrogen  # wallpaper browser and setter for X11
+
+    # ruby development
+    ruby
+
+    # clojure development
+    clojure
+    leiningen
   ];
 
   fonts.fonts = with pkgs; [
