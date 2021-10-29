@@ -96,11 +96,11 @@
     kitty     # terminal
     fzf       # general-purpose command-line fuzzy finder
     fd        # `find` alternative
-
     mediainfo # info about videos and audio files
     vlc       # video player
     nitrogen  # wallpaper browser and setter for X11
     spotify   # music player
+    mongodb   # NoSQL database
 
     # ruby development
     ruby
