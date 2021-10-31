@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
 
       ./modules/dwm/default.nix
+      ./modules/mongosh/default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -100,7 +101,6 @@
     vlc       # video player
     nitrogen  # wallpaper browser and setter for X11
     spotify   # music player
-    mongodb   # NoSQL database
 
     # ruby development
     ruby
