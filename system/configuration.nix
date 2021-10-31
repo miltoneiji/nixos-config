@@ -90,6 +90,7 @@
   environment.systemPackages = with pkgs; [
     wget
     nix-prefetch-scripts
+    arandr    # visual front end for xrandr
 
     vim       # vim
     git       # git
