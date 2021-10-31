@@ -1,11 +1,11 @@
-commit 41cb64e9867f40ae6d0c6020a4cec7cfa5e8a526
+commit 3e42610da4185ee530fa9a7e8e04f99fd048eba3
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
 Date:   Sun Oct 24 12:24:35 2021 -0300
 
     Customization
 
 diff --git a/config.def.h b/config.def.h
-index 20e554b..e86debe 100644
+index 20e554b..cf49c91 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -1,26 +1,32 @@
@@ -69,7 +69,7 @@ index 20e554b..e86debe 100644
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -60,40 +66,57 @@ static const Layout layouts[] = {
+@@ -60,40 +66,59 @@ static const Layout layouts[] = {
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
@@ -86,6 +86,7 @@ index 20e554b..e86debe 100644
 +static const char *termcmd[]  = { "kitty", NULL };
 +static const char *programscmd[] = { "/home/takamura/.scripts/programs", NULL };
 +static const char *powercmd[] = { "/home/takamura/.scripts/power", NULL };
++static const char *screenshotcmd[] = { "flameshot", "screen", "-p", "/home/takamura/Pictures/screenshots", NULL  };
  
  static Key keys[] = {
  	/* modifier                     key        function        argument */
@@ -123,6 +124,7 @@ index 20e554b..e86debe 100644
 +	{ MODKEY,                       XK_w,      zoom,           {0} },
 +	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 +	{ MODKEY,                       XK_Delete, spawn,          {.v = powercmd } },
++  { 0,                            XK_Print,  spawn,          {.v = screenshotcmd } },
 +
 +  /* sound control */
 +  { 0,                           XF86XK_AudioLowerVolume,    spawn, {.v = downvol} },
@@ -151,7 +153,7 @@ index 20e554b..e86debe 100644
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -103,7 +126,6 @@ static Key keys[] = {
+@@ -103,7 +128,6 @@ static Key keys[] = {
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)

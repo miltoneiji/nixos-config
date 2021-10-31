@@ -93,6 +93,7 @@
     arandr    # visual front end for xrandr
     pavucontrol # PulseAudio volume control
     font-manager # font management for GTK desktop environments
+    flameshot # powerful yet simple to use screenshot software
     vim       # vim
     git       # git
     firefox   # browser
