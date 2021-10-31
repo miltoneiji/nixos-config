@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "browser\nemacs\nspotify\nfilemanager\nmonitors" | dmenu)
+choice=$(echo -e "browser\nemacs\nspotify\nfilemanager\nmonitors\naudio" | dmenu)
 
 case "$choice" in
   browser) firefox & ;;
@@ -8,4 +8,5 @@ case "$choice" in
   spotify) spotify & ;;
   filemanager) dolphin & ;;
   monitors) arandr & ;;
+  audio) pavucontrol & ;;
 esac

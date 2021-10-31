@@ -91,7 +91,7 @@
     wget
     nix-prefetch-scripts
     arandr    # visual front end for xrandr
-
+    pavucontrol # PulseAudio volume control
     vim       # vim
     git       # git
     firefox   # browser
