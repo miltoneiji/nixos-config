@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "browser\nemacs\nspotify\nfilemanager\nmonitors\naudio" | dmenu)
+choice=$(echo -e "browser\nemacs\nspotify\nfile-manager\nmonitors\naudio\nfont-manager" | dmenu)
 
 case "$choice" in
   browser) firefox & ;;
   emacs) emacs & ;;
   spotify) spotify & ;;
-  filemanager) dolphin & ;;
+  file-manager) dolphin & ;;
   monitors) arandr & ;;
   audio) pavucontrol & ;;
+  font-manager) font-manager & ;;
 esac

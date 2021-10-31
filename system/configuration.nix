@@ -92,6 +92,7 @@
     nix-prefetch-scripts
     arandr    # visual front end for xrandr
     pavucontrol # PulseAudio volume control
+    font-manager # font management for GTK desktop environments
     vim       # vim
     git       # git
     firefox   # browser
