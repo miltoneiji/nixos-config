@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "browser\nemacs\nspotify" | dmenu)
+choice=$(echo -e "browser\nemacs\nspotify\nfilemanager" | dmenu)
 
 case "$choice" in
   browser) firefox & ;;
   emacs) emacs & ;;
   spotify) spotify & ;;
+  filemanager) dolphin & ;;
 esac
