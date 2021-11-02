@@ -20,11 +20,20 @@
     recursive = true;
   };
 
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
+
   programs.git = {
     enable = true;
     userName = "Milton Eiji Takamura";
     userEmail = "miltontakamura@gmail.com";
     delta.enable = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.zsh = {
@@ -34,12 +43,9 @@
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
-    sessionVariables = rec {
-      EDITOR = "vim";
-    };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "fzf" ];
+      plugins = [ "git" ];
       theme = "simple";
     };
     shellAliases = {
