@@ -104,6 +104,7 @@
     vlc       # video player
     nitrogen  # wallpaper browser and setter for X11
     spotify   # music player
+    calibre   # Comprehensive e-book sofware
 
     # ruby development
     ruby
