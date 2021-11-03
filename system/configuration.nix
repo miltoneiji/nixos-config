@@ -105,6 +105,7 @@
     nitrogen  # wallpaper browser and setter for X11
     spotify   # music player
     calibre   # Comprehensive e-book sofware
+    unzip     # Extraction utility for .zip
 
     # ruby development
     ruby
