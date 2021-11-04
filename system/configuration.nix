@@ -1,14 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, lib, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-
       ./modules/dwm/default.nix
       ./modules/mongosh/default.nix
     ];
@@ -23,16 +18,19 @@
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
+  # Used by redshift.
+  location = {
+    provider = "manual";
+    longitude = -46.63;
+    latitude = -23.61;
+  };
+
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp1s0.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -46,11 +44,12 @@
     enable = true;
 
     # Enable the Plasma 5 Desktop Environment.
+    desktopManager.plasma5.enable = true;
+
     displayManager.sddm.enable = true;
     displayManager.sessionCommands = ''
       nitrogen --restore
     '';
-    desktopManager.plasma5.enable = true;
 
     windowManager.dwm.enable = true;
     
@@ -82,38 +81,34 @@
   users.users.takamura = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    nix-prefetch-scripts
-    arandr    # visual front end for xrandr
+    wget # Tool for retrieving files using HTTP, HTTPS, and FTP
+    nix-prefetch-scripts # To obtain source hashes
+    arandr # visual front end for xrandr
     pavucontrol # PulseAudio volume control
     font-manager # font management for GTK desktop environments
     flameshot # powerful yet simple to use screenshot software
-    vim       # vim
-    git       # git
-    firefox   # browser
-    kitty     # terminal
-    fzf       # general-purpose command-line fuzzy finder
-    fd        # `find` alternative
+    vim # vim
+    git # git
+    firefox # browser
+    kitty # terminal
+    fzf # general-purpose command-line fuzzy finder
+    fd # `find` alternative
     mediainfo # info about videos and audio files
-    vlc       # video player
-    nitrogen  # wallpaper browser and setter for X11
-    spotify   # music player
-    calibre   # Comprehensive e-book sofware
-    unzip     # Extraction utility for .zip
-    zoom-us   # video conferencing application
-
-    # ruby development
-    ruby
-
-    # clojure development
-    clojure
-    leiningen
+    vlc # video player
+    nitrogen # wallpaper browser and setter for X11
+    spotify # music player
+    calibre # Comprehensive e-book sofware
+    unzip # Extraction utility for .zip
+    zoom-us # video conferencing application
+    clojure # lisp dialect for JVM
+    leiningen # project automation for Clojure
+    ruby # the Ruby language
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -130,7 +125,7 @@
     jetbrains-mono
   ];
 
-  # Control screen brightness via hotkeys
+  # Control screen brightness via hotkeys.
   programs.light.enable = true;
   services.actkbd = {
     enable = true;
@@ -140,48 +135,24 @@
     ];
   };
 
-  # Torrent indexer service
+  # Torrent indexer service.
   # available at localhost:9117
   services.jackett = {
     enable = true;
   };
 
+  # Screen color temperature manager.
   services.redshift = {
     enable = true;
   };
 
-  location = {
-    provider = "manual";
-    longitude = -46.63;
-    latitude = -23.61;
-  };
-
-  # Enable Flakes
+  # Enable Flakes.
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -190,6 +161,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
 }
-
