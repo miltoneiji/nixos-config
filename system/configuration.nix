@@ -95,6 +95,8 @@
     flameshot # powerful yet simple to use screenshot software
     vim # vim
     git # git
+    jq # command-line JSON processor
+    nmap # network discovery and security auditing
     firefox # browser
     kitty # terminal
     fzf # general-purpose command-line fuzzy finder
