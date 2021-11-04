@@ -106,6 +106,7 @@
     spotify   # music player
     calibre   # Comprehensive e-book sofware
     unzip     # Extraction utility for .zip
+    zoom-us   # video conferencing application
 
     # ruby development
     ruby
@@ -118,6 +119,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"
     "spotify-unwrapped"
+    "zoom"
   ];
 
   fonts.fonts = with pkgs; [
@@ -142,6 +144,16 @@
   # available at localhost:9117
   services.jackett = {
     enable = true;
+  };
+
+  services.redshift = {
+    enable = true;
+  };
+
+  location = {
+    provider = "manual";
+    longitude = -46.63;
+    latitude = -23.61;
   };
 
   # Enable Flakes
