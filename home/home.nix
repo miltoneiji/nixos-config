@@ -5,7 +5,6 @@
 
   imports = [
     ./modules/emacs/default.nix
-
     ./modules/dmenu/default.nix
     ./modules/slstatus/default.nix
   ];
@@ -106,8 +105,4 @@
     enable = true;
     enableAliases = true;
   };
-
-  home.packages = with pkgs; [
-    qbittorrent  # torrent client
-  ];
 }

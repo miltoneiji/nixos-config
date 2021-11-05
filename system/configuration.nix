@@ -112,6 +112,7 @@
     leiningen # project automation for Clojure
     ruby # the Ruby language
     hexchat # graphical IRC client
+    qbittorrent # torrent client
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
