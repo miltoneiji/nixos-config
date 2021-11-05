@@ -111,6 +111,7 @@
     clojure # lisp dialect for JVM
     leiningen # project automation for Clojure
     ruby # the Ruby language
+    hexchat # graphical IRC client
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
