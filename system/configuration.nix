@@ -116,6 +116,7 @@
     youtube-dl # Video downloader
     nodejs # Node
     nodePackages.yarn # Node dependency management
+    rubyPackages.rails # Rails
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
