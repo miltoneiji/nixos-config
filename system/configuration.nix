@@ -113,6 +113,7 @@
     ruby # the Ruby language
     hexchat # graphical IRC client
     qbittorrent # torrent client
+    youtube-dl # Video downloader
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
