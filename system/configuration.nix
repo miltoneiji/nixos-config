@@ -114,6 +114,8 @@
     hexchat # graphical IRC client
     qbittorrent # torrent client
     youtube-dl # Video downloader
+    nodejs # Node
+    nodePackages.yarn # Node dependency management
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
