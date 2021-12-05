@@ -110,10 +110,14 @@
     zoom-us # video conferencing application
     clojure # lisp dialect for JVM
     leiningen # project automation for Clojure
-    ruby # the Ruby language
     hexchat # graphical IRC client
     qbittorrent # torrent client
     youtube-dl # Video downloader
+    ruby # the Ruby language
+    bundler # Ruby dependency manager
+    ledger # Double-entry accounting cli
+    hledger # CLI for hledger accounting system
+    hledger-web # Web-based interface for hledger
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
