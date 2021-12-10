@@ -118,6 +118,7 @@
     ledger # Double-entry accounting cli
     hledger # CLI for hledger accounting system
     hledger-web # Web-based interface for hledger
+    anki # Spaced repetition flashcard program
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
