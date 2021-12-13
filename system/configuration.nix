@@ -119,6 +119,8 @@
     hledger # CLI for hledger accounting system
     hledger-web # Web-based interface for hledger
     anki # Spaced repetition flashcard program
+    exfat # Free exFAT file system implementation
+    libsForQt5.ark # Extract features in Dolphin
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
