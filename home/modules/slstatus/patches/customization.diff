@@ -1,20 +1,21 @@
-commit 4a68a999b81936e94ce796485c49fe1801024c83
+commit bd1fdfbb64bba0da7051bda806c7f6c4dd692947
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
 Date:   Sun Oct 24 11:28:32 2021 -0300
 
     Customization
 
 diff --git a/config.def.h b/config.def.h
-index e06be66..954d6f2 100644
+index e06be66..8e6bf73 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -62,6 +62,10 @@ static const char unknown_str[] = "n/a";
+@@ -62,6 +62,11 @@ static const char unknown_str[] = "n/a";
   * wifi_essid          WiFi ESSID                      interface name (wlan0)
   */
  static const struct arg args[] = {
 -	/* function format          argument */
 -	{ datetime, "%s",           "%F %T" },
 +	/* function      format            argument */
++  { ram_used,      "[ %s ] ",        NULL },
 +  { wifi_essid,    "[ wifi: %s ] ",  "wlp0s20f3" },
 +  { run_command,   "[ vol: %4s ] ",   "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
 +  { battery_perc,  "[ bat: %s%% ",   "BAT0" },
