@@ -121,6 +121,7 @@
     anki # Spaced repetition flashcard program
     exfat # Free exFAT file system implementation
     libsForQt5.ark # Extract features in Dolphin
+    wine # Implementation of the Windows API
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
