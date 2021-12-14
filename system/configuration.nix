@@ -115,6 +115,7 @@
     youtube-dl # Video downloader
     ruby # the Ruby language
     bundler # Ruby dependency manager
+    bundix # Creates Nix packages from Gemfiles
     ledger # Double-entry accounting cli
     hledger # CLI for hledger accounting system
     hledger-web # Web-based interface for hledger
