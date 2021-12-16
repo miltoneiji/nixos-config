@@ -110,7 +110,6 @@
     zoom-us # video conferencing application
     clojure # lisp dialect for JVM
     leiningen # project automation for Clojure
-    hexchat # graphical IRC client
     qbittorrent # torrent client
     youtube-dl # Video downloader
     ruby # the Ruby language
@@ -122,7 +121,6 @@
     anki # Spaced repetition flashcard program
     exfat # Free exFAT file system implementation
     libsForQt5.ark # Extract features in Dolphin
-    wine # Implementation of the Windows API
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
