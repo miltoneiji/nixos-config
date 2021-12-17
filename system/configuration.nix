@@ -115,6 +115,7 @@
     ruby # the Ruby language
     bundler # Ruby dependency manager
     bundix # Creates Nix packages from Gemfiles
+    solargraph # A Ruby language server
     ledger # Double-entry accounting cli
     hledger # CLI for hledger accounting system
     hledger-web # Web-based interface for hledger
