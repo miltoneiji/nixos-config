@@ -15,6 +15,10 @@
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
@@ -122,6 +126,8 @@
     anki # Spaced repetition flashcard program
     exfat # Free exFAT file system implementation
     libsForQt5.ark # Extract features in Dolphin
+    bluez # Bluetooth support for Linux
+    bluez-tools # CLI for bluez
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
