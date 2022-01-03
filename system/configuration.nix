@@ -151,6 +151,7 @@
     fira-code-symbols
     source-code-pro
     jetbrains-mono
+    nanum-gothic-coding
   ];
 
   # Control screen brightness via hotkeys.

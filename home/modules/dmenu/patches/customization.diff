@@ -1,11 +1,11 @@
-commit 159db2288f99ba2cbb863b7c6909d78a9548cbe0
+commit d34b878d0f3d5a2d8eee98a61fe7d1f1b521f26c
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
 Date:   Sat Oct 23 14:01:30 2021 -0300
 
     Enable center
 
 diff --git a/config.def.h b/config.def.h
-index 890a9d4..dd95388 100644
+index 890a9d4..8c21470 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -2,21 +2,21 @@
@@ -19,7 +19,7 @@ index 890a9d4..dd95388 100644
  /* -fn option overrides fonts[0]; default X11 font or font set */
  static const char *fonts[] = {
 -	"monospace:size=10"
-+	"JetBrainsMono:size=15"
++	"NanumGothicCoding:size=15"
  };
  static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
  static const char *colors[SchemeLast][2] = {
