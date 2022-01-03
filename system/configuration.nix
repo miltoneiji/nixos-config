@@ -129,6 +129,7 @@
     libsForQt5.ark # Extract features in Dolphin
     bluez # Bluetooth support for Linux
     bluez-tools # CLI for bluez
+    android-file-transfer # MTP client
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
