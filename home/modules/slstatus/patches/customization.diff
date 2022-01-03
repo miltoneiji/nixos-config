@@ -1,11 +1,11 @@
-commit bd1fdfbb64bba0da7051bda806c7f6c4dd692947
+commit b43011b1d8a4b787564349206f1d4c3d6763ab09
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
 Date:   Sun Oct 24 11:28:32 2021 -0300
 
     Customization
 
 diff --git a/config.def.h b/config.def.h
-index e06be66..8e6bf73 100644
+index e06be66..769da2f 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -62,6 +62,11 @@ static const char unknown_str[] = "n/a";
@@ -16,8 +16,8 @@ index e06be66..8e6bf73 100644
 -	{ datetime, "%s",           "%F %T" },
 +	/* function      format            argument */
 +  { ram_used,      "[ %s ] ",        NULL },
-+  { wifi_essid,    "[ wifi: %s ] ",  "wlp0s20f3" },
-+  { run_command,   "[ vol: %4s ] ",   "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
++  { wifi_essid,    "[  %s ] ",     "wlp0s20f3" },
++  { run_command,   "[ vol: %4s ] ",  "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
 +  { battery_perc,  "[ bat: %s%% ",   "BAT0" },
 +  { battery_state, "%s ] ",          "BAT0" },
 +	{ datetime,      "[ %s ]",         "%a, %b %d %H:%M" },
