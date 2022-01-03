@@ -64,6 +64,11 @@
     extraConfig = ''
       inoremap jk <esc>
     '';
+    plugins = with pkgs.vimPlugins; [
+      nerdtree
+      vim-airline
+      vim-sensible
+    ];
   };
 
   programs.kitty = {
