@@ -20,7 +20,7 @@
   services.blueman.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Sao_Paulo";
+  time.timeZone = "Europe/Dublin";
 
   # Used by redshift.
   location = {
