@@ -137,6 +137,8 @@
     android-file-transfer # MTP client
     neofetch # System info script for ricing
     gotop # graphical activity monitor for ricing
+    bazel # Build tool
+    jetbrains.idea-community # Intellij
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
