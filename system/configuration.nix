@@ -36,6 +36,16 @@
   networking.interfaces.enp1s0.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
+  services.openvpn.servers = {
+    spain = {
+      autoStart = true;
+      config = '' config /home/takamura/vpn/configurations/es-bcn.prod.surfshark.com_tcp.ovpn '';
+      authUserPass = with builtins; with (fromJSON (readFile ../secrets.json)); {
+        inherit username password;
+      };
+    };
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
