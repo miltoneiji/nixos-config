@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "browser\nemacs\nspotify\nfile-manager\nmonitors\naudio\nfont-manager\nzoom\ncalibre\nanki" | dmenu)
+choice=$(echo -e "browser\nemacs\nspotify\nfile-manager\nmonitors\naudio\nfont-manager\nzoom\ncalibre\nanki\ntorrent" | dmenu)
 
 case "$choice" in
   browser) firefox & ;;
@@ -13,4 +13,5 @@ case "$choice" in
   zoom) zoom & ;;
   calibre) calibre & ;;
   anki) anki & ;;
+  torrent) qbittorrent & ;;
 esac
