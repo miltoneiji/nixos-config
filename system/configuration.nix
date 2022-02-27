@@ -100,7 +100,7 @@
   users.users.takamura = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "plex" ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -155,6 +155,7 @@
     "spotify"
     "spotify-unwrapped"
     "zoom"
+    "plexmediaserver"
   ];
 
   fonts.fonts = with pkgs; [
@@ -180,6 +181,11 @@
   # available at localhost:9117
   services.jackett = {
     enable = true;
+  };
+
+  services.plex = {
+    enable = true;
+    openFirewall = true;
   };
 
   # Screen color temperature manager.
