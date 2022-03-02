@@ -149,6 +149,7 @@
     gotop # graphical activity monitor for ricing
     bazel # Build tool
     jetbrains.idea-community # Intellij
+    jdk # Open-source Java development kit
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -157,6 +158,9 @@
     "zoom"
     "plexmediaserver"
   ];
+
+  # This fixes 'blank' windows when opening Intellij
+  environment.variables._JAVA_AWT_WM_NONREPARENTING = "1";
 
   fonts.fonts = with pkgs; [
     hack-font
