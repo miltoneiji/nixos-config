@@ -36,15 +36,16 @@
   networking.interfaces.enp1s0.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
-  services.openvpn.servers = {
-    spain = {
-      autoStart = true;
-      config = '' config /home/takamura/vpn/configurations/es-bcn.prod.surfshark.com_tcp.ovpn '';
-      authUserPass = with builtins; with (fromJSON (readFile ../secrets.json)); {
-        inherit username password;
-      };
-    };
-  };
+  # Uncomment if you want to enable your VPN
+  # services.openvpn.servers = {
+  #   spain = {
+  #     autoStart = true;
+  #     config = '' config /home/takamura/vpn/configurations/es-bcn.prod.surfshark.com_tcp.ovpn '';
+  #     authUserPass = with builtins; with (fromJSON (readFile ../secrets.json)); {
+  #       inherit username password;
+  #     };
+  #   };
+  # };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -92,9 +93,16 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  # Sound
+  sound.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.takamura = {
