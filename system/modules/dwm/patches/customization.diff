@@ -1,11 +1,11 @@
-commit 43374640577107d918ae4b208dc22a7d58dce6ea
+commit 16831dcf220e70b819e23bc22cfdb8ef091b7ed9
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
 Date:   Sun Mar 6 12:07:15 2022 +0000
 
     Customization
 
 diff --git a/config.def.h b/config.def.h
-index fa39731..f34eace 100644
+index fa39731..bd153af 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -1,36 +1,38 @@
@@ -26,7 +26,7 @@ index fa39731..f34eace 100644
 -static const char col_gray3[]       = "#bbbbbb";
 -static const char col_gray4[]       = "#eeeeee";
 -static const char col_cyan[]        = "#005577";
-+static const *fonts[]               = { "Source Code Pro:size=13" }; /* Used by slstatus */
++static const *fonts[]               = { "Hack:size=13" }; /* Used by slstatus */
 +static const char col_bg[]          = "#000000";
 +static const char col_fg[]          = "#FBFBFB";
 +static const char col_fg_faded[]    = "#666666";

@@ -74,35 +74,35 @@
   programs.kitty = {
     enable = true;
     font = {
-      package = pkgs.jetbrains-mono;
-      name = "JetBrainsMono";
+      package = pkgs.hack-font;
+      name = "Hack";
       size = 15;
     };
     settings = {
-      scrollback_lines = 5000;
+      scrollback_lines = 10000;
       background_opacity = "0.95";
 
-      background           = "#050E0E";
+      background           = "#000000";
       foreground           = "#FBFBFB";
-      cursor               = "#33A1DB";
+      cursor               = "#5277C3";
       selection_background = "#B5B5FF";
-      selection_foreground = "#050E0E";
-      color0               = "#050E0E";
-      color8               = "#545454";
-      color1               = "#FF5555";
-      color9               = "#FF5555";
-      color2               = "#55FF55";
-      color10              = "#55FF55";
-      color3               = "#FFFF55";
-      color11              = "#FFFF55";
-      color4               = "#7CA2B6";
-      color12              = "#7CA2B6";
-      color5               = "#FF55FF";
-      color13              = "#FF55FF";
-      color6               = "#33A1DB";
-      color14              = "#49C6DB";
-      color7               = "#BBBBBB";
-      color15              = "#FBFBFB";
+      selection_foreground = "#000000";
+      color0               = "#000000";
+      color8               = "#222222";
+      color1               = "#DC5858";
+      color9               = "#F86363";
+      color2               = "#5ED966";
+      color10              = "#6EFF78";
+      color3               = "#B37021";
+      color11              = "#F1972C";
+      color4               = "#5277C3";
+      color12              = "#6694F3";
+      color5               = "#C15FB3";
+      color13              = "#F378E1";
+      color6               = "#7EBAE4";
+      color14              = "#8DD0FF";
+      color7               = "#FBFBFB";
+      color15              = "#FFFFFF";
     };
   };
 
