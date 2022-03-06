@@ -12,6 +12,7 @@
           ./patches/dwm-fullgaps-6.2.diff
           ./patches/dwm-cool-autostart-6.2.diff
           ./patches/dwm-fullscreen-6.2-custom.diff
+          ./patches/dwm-colorbar-6.2.diff
           ./patches/customization.diff
         ];
       });

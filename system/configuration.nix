@@ -177,6 +177,7 @@
     source-code-pro
     jetbrains-mono
     nanum-gothic-coding
+    times-newer-roman
   ];
 
   # Control screen brightness via hotkeys.
