@@ -80,7 +80,7 @@
     };
     settings = {
       scrollback_lines = 10000;
-      background_opacity = "0.95";
+      background_opacity = "0.85";
 
       background           = "#000000";
       foreground           = "#FBFBFB";
