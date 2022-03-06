@@ -54,6 +54,9 @@
     keyMap = "us";
   };
 
+  services.upower.enable = true;
+  services.dbus.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -62,11 +65,22 @@
     desktopManager.plasma5.enable = true;
 
     displayManager.sddm.enable = true;
+    displayManager.defaultSession = "none+xmonad";
     displayManager.sessionCommands = ''
       nitrogen --restore
     '';
 
-    windowManager.dwm.enable = true;
+    windowManager.dwm.enable = false;
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      config = ./modules/xmonad/config.hs;
+      extraPackages = hp: [
+        hp.dbus
+        hp.monad-logger
+        hp.xmonad-contrib
+      ];
+    };
     
     libinput = {
       enable = true;
@@ -83,11 +97,6 @@
     xkbOptions = "caps:escape";
     autoRepeatDelay = 200;
     autoRepeatInterval = 30;
-  };
-
-  # Compositor
-  services.picom = {
-    enable = true;
   };
 
   # Enable CUPS to print documents.
@@ -177,6 +186,7 @@
     source-code-pro
     jetbrains-mono
     nanum-gothic-coding
+    material-design-icons
   ];
 
   # Control screen brightness via hotkeys.

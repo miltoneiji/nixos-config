@@ -7,6 +7,7 @@
     ./modules/emacs/default.nix
     ./modules/dmenu/default.nix
     ./modules/slstatus/default.nix
+    ./modules/polybar/default.nix
   ];
 
   home.username = "takamura";
@@ -68,6 +69,7 @@
       nerdtree
       vim-airline
       vim-sensible
+      haskell-vim
     ];
   };
 
