@@ -11,8 +11,9 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "laptop";
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
@@ -33,8 +34,8 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp1s0.useDHCP = true;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
+  networking.interfaces.enp6s0.useDHCP = true;
+  networking.interfaces.wlp5s0.useDHCP = true;
 
   # Uncomment if you want to enable your VPN
   # services.openvpn.servers = {
@@ -57,6 +58,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
+    videoDrivers = [ "nvidia" ];
 
     # Enable the Plasma 5 Desktop Environment.
     desktopManager.plasma5.enable = true;
@@ -165,6 +167,8 @@
     "spotify-unwrapped"
     "zoom"
     "plexmediaserver"
+    "nvidia-x11"
+    "nvidia-settings"
   ];
 
   # This fixes 'blank' windows when opening Intellij
