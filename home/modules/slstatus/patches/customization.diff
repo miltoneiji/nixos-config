@@ -1,24 +1,28 @@
-commit b43011b1d8a4b787564349206f1d4c3d6763ab09
+commit 0f4f4c25360609963cdeead57a18a234d20e4e13
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
-Date:   Sun Oct 24 11:28:32 2021 -0300
+Date:   Wed Mar 9 09:38:36 2022 +0000
 
-    Customization
+    Customizations
 
 diff --git a/config.def.h b/config.def.h
-index e06be66..769da2f 100644
+index e06be66..9baed2e 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -62,6 +62,11 @@ static const char unknown_str[] = "n/a";
+@@ -62,6 +62,15 @@ static const char unknown_str[] = "n/a";
   * wifi_essid          WiFi ESSID                      interface name (wlan0)
   */
  static const struct arg args[] = {
 -	/* function format          argument */
 -	{ datetime, "%s",           "%F %T" },
 +	/* function      format            argument */
-+  { ram_used,      "[ %s ] ",        NULL },
-+  { wifi_essid,    "[  %s ] ",     "wlp0s20f3" },
++  { ram_used,      "[ RAM %s ] ",    NULL },
++  { cpu_perc,      "[ CPU %s%%",       NULL },
++  { cpu_freq,      " %s ] ",         NULL },
++  { wifi_essid,    "[ %s",           "wlp5s0" },
++  { wifi_perc,     " %s%% ] ",         "wlp5s0" },
++  { ipv4,          "[ %s ] ",        "wlp5s0" },
 +  { run_command,   "[ vol: %4s ] ",  "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-+  { battery_perc,  "[ bat: %s%% ",   "BAT0" },
-+  { battery_state, "%s ] ",          "BAT0" },
++  //{ battery_perc,  "[ bat: %s%% ",   "BAT0" },
++  //{ battery_state, "%s ] ",          "BAT0" },
 +	{ datetime,      "[ %s ]",         "%a, %b %d %H:%M" },
  };

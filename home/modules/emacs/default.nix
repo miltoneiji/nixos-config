@@ -2,6 +2,7 @@
 {
   programs.emacs = {
     enable = true;
+    package = pkgs.emacsGcc;
   };
 
   # to get the rev and sha256
