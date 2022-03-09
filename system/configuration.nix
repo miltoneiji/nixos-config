@@ -16,6 +16,9 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
+  # I don't need Internet to boot my pc
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   # Enable bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -34,7 +37,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp6s0.useDHCP = true;
+  networking.interfaces.enp6s0.useDHCP = false;
   networking.interfaces.wlp5s0.useDHCP = true;
 
   # Uncomment if you want to enable your VPN

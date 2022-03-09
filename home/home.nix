@@ -76,7 +76,7 @@
     font = {
       package = pkgs.hack-font;
       name = "Hack";
-      size = 15;
+      size = 23;
     };
     settings = {
       scrollback_lines = 10000;
