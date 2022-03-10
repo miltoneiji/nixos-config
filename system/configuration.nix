@@ -170,6 +170,7 @@
     bazel # Build tool
     jetbrains.idea-community # Intellij
     jdk # Open-source Java development kit
+    pciutils # Collection of programs for inspecing PCI devices
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
