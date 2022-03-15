@@ -226,6 +226,9 @@
     enable = true;
     group = "media";
     listen.port = 8083;
+    options.enableBookUploading = true;
+    options.enableBookConversion = true;
+    options.calibreLibrary = "/media-srv/ebooks";
   };
 
   # Screen color temperature manager.
