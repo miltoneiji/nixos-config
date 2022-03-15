@@ -108,12 +108,14 @@
     pulse.enable = true;
   };
 
+  # Group that I use to manage my media
+  users.groups.media = {};
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.takamura = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "plex" ];
+    extraGroups = [ "wheel" "networkmanager" "plex" "media" ];
   };
 
   nixpkgs.overlays = [
@@ -171,6 +173,11 @@
     jetbrains.idea-community # Intellij
     jdk # Open-source Java development kit
     pciutils # Collection of programs for inspecing PCI devices
+    scala
+    sbt
+    bazel
+    gcc
+    sqlite-web
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -213,6 +220,12 @@
   services.plex = {
     enable = true;
     openFirewall = true;
+  };
+
+  services.calibre-web = {
+    enable = true;
+    group = "media";
+    listen.port = 8083;
   };
 
   # Screen color temperature manager.
