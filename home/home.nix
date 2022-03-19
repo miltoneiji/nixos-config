@@ -69,6 +69,7 @@
       nerdtree
       vim-airline
       vim-sensible
+      vim-nix
     ];
   };
 
