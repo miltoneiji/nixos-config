@@ -178,6 +178,7 @@
     bazel
     gcc
     sqlite-web
+    silver-searcher # ag: code-searching tool similar to ack, but faster
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [

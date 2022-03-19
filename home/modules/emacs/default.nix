@@ -12,13 +12,14 @@
     source = pkgs.fetchFromGitHub {
       owner = "miltoneiji";
       repo = "emacs.d";
-      rev = "843c740b37cf0a604b898f585b46cb24a8ab03cf";
-      sha256 = "1ih348w8s36nvql914lxd3jgb6y67ms1gx9x243375rs5dc3nvdy";
+      rev = "9142cc43ccc8a9956a881c6d287f13fae57cf724";
+      sha256 = "117ib12xqgwxdgf0nrlvrc840cl2z9j6i2bjqwcll2jbqnhx2gib";
     };
   };
 
   home.packages = with pkgs; [
     ripgrep
     fd
+    silver-searcher
   ];
 }
