@@ -1,11 +1,11 @@
-commit 0f4f4c25360609963cdeead57a18a234d20e4e13
+commit 77a000f9cf9c4938c6be12985ce4ba2c2321e335
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
 Date:   Wed Mar 9 09:38:36 2022 +0000
 
     Customizations
 
 diff --git a/config.def.h b/config.def.h
-index e06be66..9baed2e 100644
+index e06be66..b799bb5 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -62,6 +62,15 @@ static const char unknown_str[] = "n/a";
@@ -24,5 +24,5 @@ index e06be66..9baed2e 100644
 +  { run_command,   "[ vol: %4s ] ",  "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
 +  //{ battery_perc,  "[ bat: %s%% ",   "BAT0" },
 +  //{ battery_state, "%s ] ",          "BAT0" },
-+	{ datetime,      "[ %s ]",         "%a, %b %d %H:%M" },
++	{ datetime,      "[ %s ] ",         "%a, %b %d %H:%M" },
  };

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "browser\nemacs\nspotify\nfile-manager\nmonitors\naudio\nfont-manager\nzoom\ncalibre\nanki\ntorrent\nidea\nbluetooth" | dmenu)
+choice=$(echo -e "browser\nemacs\nspotify\nfile-manager\nmonitors\naudio\nfont-manager\nzoom\ncalibre\nanki\ntorrent\nidea\nbluetooth\nnitrogen" | dmenu)
 
 case "$choice" in
   browser) firefox & ;;
@@ -16,4 +16,5 @@ case "$choice" in
   torrent) qbittorrent & ;;
   idea) idea-community & ;;
   bluetooth) blueman-manager & ;;
+  nitrogen) nitrogen & ;;
 esac

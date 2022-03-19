@@ -167,8 +167,6 @@
     bluez # Bluetooth support for Linux
     bluez-tools # CLI for bluez
     android-file-transfer # MTP client
-    neofetch # System info script for ricing
-    gotop # graphical activity monitor for ricing
     bazel # Build tool
     jetbrains.idea-community # Intellij
     jdk # Open-source Java development kit
@@ -179,6 +177,13 @@
     gcc
     sqlite-web
     silver-searcher # ag: code-searching tool similar to ack, but faster
+
+    # Ricing
+    neofetch # System info script for ricing
+    cmatrix # Simulates the display from "The Matrix"
+    gotop # graphical activity monitor for ricing
+    tty-clock # Digital clock in ncurses
+    cava # Console-based Audio Visualizer for Alsa
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
