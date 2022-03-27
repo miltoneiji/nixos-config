@@ -13,6 +13,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
@@ -72,7 +74,7 @@
     '';
 
     windowManager.dwm.enable = true;
-    
+
     libinput = {
       enable = true;
       touchpad = {
@@ -177,6 +179,8 @@
     gcc
     sqlite-web
     silver-searcher # ag: code-searching tool similar to ack, but faster
+    rpi-imager # Raspberry Pi imaging utility
+    coreutils # GNU utilities
 
     # Ricing
     neofetch # System info script for ricing
