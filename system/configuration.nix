@@ -120,13 +120,6 @@
     extraGroups = [ "wheel" "networkmanager" "plex" "media" ];
   };
 
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-      sha256 = "0d438wsz7yvsrwddxnnc7c44m15kw7dhnni1gl9p1y4rg02fi663";
-    }))
-  ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
