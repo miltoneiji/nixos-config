@@ -43,17 +43,8 @@
   networking.interfaces.enp6s0.useDHCP = false;
   networking.interfaces.wlp5s0.useDHCP = true;
 
-  # Uncomment if you want to enable your VPN
-  # services.openvpn.servers = {
-  #   spain = {
-  #     autoStart = true;
-  #     config = '' config /home/takamura/vpn/configurations/es-bcn.prod.surfshark.com_tcp.ovpn '';
-  #     authUserPass = with builtins; with (fromJSON (readFile ../secrets.json)); {
-  #       inherit username password;
-  #     };
-  #   };
-  # };
-
+  # Create services `openvpn-dublin`, `openvpn-madrid`, etc
+  # Usage: `systemctl start openvpn-<location>`
   services.vpn = {
     enable = true;
   };
