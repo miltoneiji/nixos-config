@@ -239,6 +239,13 @@
     enable = true;
   };
 
+  # Cleaning the Nix Store
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 7d";
+    dates = "weekly";
+  };
+
   # Enable Flakes.
   nix = {
     package = pkgs.nixUnstable;
