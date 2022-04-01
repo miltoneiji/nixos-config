@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./modules/dwm/default.nix
       ./modules/mongosh/default.nix
+      ../modules/vpn.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -52,6 +53,10 @@
   #     };
   #   };
   # };
+
+  services.vpn = {
+    enable = true;
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
