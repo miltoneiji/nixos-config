@@ -128,6 +128,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    git-crypt # Transparent file encryption in git
     wget # Tool for retrieving files using HTTP, HTTPS, and FTP
     nix-prefetch-scripts # To obtain source hashes
     arandr # visual front end for xrandr
