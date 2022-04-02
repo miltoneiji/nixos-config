@@ -58,7 +58,6 @@ Add this to your configuration:
 
 ``` nix
 boot = {
-  loader.generic-extlinux-compatible.enable = true;
   loader.grub.enable = false;
   loader.raspberryPi.enable = true;
   loader.raspberryPi.version = 4;
