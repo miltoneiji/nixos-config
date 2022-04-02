@@ -1,10 +1,11 @@
-# NixOS config
+# NixOS configs
 
-My personal NixOS configuration.
+My personal NixOS configurations.
 
 ## Usage
 
-Clone this repository to `~/repos/nixos-config`, navigate to this directory and run `./apply-system.sh`.
+Run `./apply-system.sh` to build and apply the NixOS configuration
+with the current host name.
 
 ## Secrets management
 
