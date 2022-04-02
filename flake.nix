@@ -51,7 +51,7 @@
               ./hosts/raspberry
               home-manager.nixosModules.home-manager
               (mkHomeManagerConfig {
-                usersConfig.takamura = import ./users/takamura;
+                usersConfig.takamura = import ./users/takamura-lite;
               })
             ];
           };
