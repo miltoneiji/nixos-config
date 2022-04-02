@@ -9,7 +9,7 @@
 
   # Raspberry PI 4B specifics
   boot = {
-    #loader.generic-extlinux-compatible.enable = true;
+    loader.timeout = 1;
     loader.grub.enable = false;
     loader.raspberryPi.enable = true;
     loader.raspberryPi.version = 4;
@@ -129,6 +129,13 @@
     "plexmediaserver"
     "unrar"
   ];
+
+  # Cleaning the Nix Store
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 7d";
+    dates = "weekly";
+  };
 
   # Enabling flakes
   nix = {
