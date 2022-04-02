@@ -1,1 +1,1 @@
-secrets/vpn_auth.json filter=git-crypt diff=git-crypt
+secrets/** filter=git-crypt diff=git-crypt
