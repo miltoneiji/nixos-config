@@ -18,8 +18,13 @@
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    wireless = {
+      enable = true;
+      networks = import ../../secrets/wifi.nix;
+    };
+  };
 
   # I don't need Internet to boot my pc
   systemd.services.NetworkManager-wait-online.enable = false;

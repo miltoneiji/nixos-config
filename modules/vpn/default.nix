@@ -12,8 +12,8 @@ let
     "sao-paulo" = readFile ../../secrets/vpn-configs/sao-paulo-udp.ovpn;
   };
 
-  mkConfigFor = location: {
-    autoStart = false;
+  mkConfigFor = location: autoStartLocation: {
+    autoStart = location == autoStartLocation;
     config = config-by-location."${location}";
     authUserPass = with (fromJSON (readFile ../../secrets/vpn-auth.json)); {
       inherit username password;
@@ -29,13 +29,21 @@ in
         Create services with name `openvpn-<location>`.
       '';
     };
+
+    autoStartLocation = mkOption {
+      type = types.str;
+      default = "astera";
+      description = ''
+        Starts vpn at location.
+      '';
+    };
   };
 
   config = {
     services.openvpn.servers = mkIf cfg.enable {
-      dublin = mkConfigFor "dublin";
-      madrid = mkConfigFor "madrid";
-      sao-paulo = mkConfigFor "sao-paulo";
+      dublin = mkConfigFor "dublin" cfg.autoStartLocation;
+      madrid = mkConfigFor "madrid" cfg.autoStartLocation;
+      sao-paulo = mkConfigFor "sao-paulo" cfg.autoStartLocation;
     };
   };
 }

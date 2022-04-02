@@ -45,6 +45,16 @@
               })
             ];
           };
+
+          raspberry = mkSystem "aarch64-linux" {
+            modules = [
+              ./hosts/raspberry
+              home-manager.nixosModules.home-manager
+              (mkHomeManagerConfig {
+                usersConfig.takamura = import ./users/takamura;
+              })
+            ];
+          };
         };
       };
 }
