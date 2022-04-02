@@ -21,7 +21,6 @@ in
   };
 
   home.packages = with pkgs; [
-    ripgrep
     fd
     silver-searcher
   ];

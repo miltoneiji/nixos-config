@@ -105,71 +105,61 @@
     pulse.enable = true;
   };
 
-  # Group that I use to manage my media
-  users.groups.media = {};
+  users = {
+    users.takamura = {
+      isNormalUser = true;
+      shell = pkgs.zsh;
+      extraGroups = [ "wheel" "networkmanager" "media" ];
+    };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.takamura = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "plex" "media" ];
+    groups.media = {}; # media management
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git-crypt # Transparent file encryption in git
+    vim # vim
+    git # git
     wget # Tool for retrieving files using HTTP, HTTPS, and FTP
+    kitty # terminal
+    jq # command-line JSON processor
+    fzf # general-purpose command-line fuzzy finder
+    fd # `find` alternative
+    sqlite-web
     nix-prefetch-scripts # To obtain source hashes
+    nmap # network discovery and security auditing
+    mediainfo # info about videos and audio files
+    vlc # video player
+    unzip # Extraction utility for .zip
+    youtube-dl # Video downloader
+    exfat # Free exFAT file system implementation
+    libsForQt5.ark # Extract features in Dolphin
+    android-file-transfer # MTP client
+    pciutils # Collection of programs for inspecing PCI devices
+    rpi-imager # Raspberry Pi imaging utility
+
+    firefox # browser
+    spotify # music player
     arandr # visual front end for xrandr
     pavucontrol # PulseAudio volume control
     font-manager # font management for GTK desktop environments
-    flameshot # powerful yet simple to use screenshot software
-    vim # vim
-    git # git
-    jq # command-line JSON processor
-    nmap # network discovery and security auditing
-    firefox # browser
-    kitty # terminal
-    fzf # general-purpose command-line fuzzy finder
-    fd # `find` alternative
-    mediainfo # info about videos and audio files
-    vlc # video player
-    nitrogen # wallpaper browser and setter for X11
-    spotify # music player
-    calibre # Comprehensive e-book sofware
-    unzip # Extraction utility for .zip
     zoom-us # video conferencing application
-    clojure # lisp dialect for JVM
-    leiningen # project automation for Clojure
-    qbittorrent # torrent client
-    youtube-dl # Video downloader
-    ruby # the Ruby language
-    bundler # Ruby dependency manager
-    bundix # Creates Nix packages from Gemfiles
-    rubyPackages.rspec # Ruby test framework
-    solargraph # A Ruby language server
-    ledger # Double-entry accounting cli
-    hledger # CLI for hledger accounting system
-    hledger-web # Web-based interface for hledger
+    calibre # Comprehensive e-book sofware
     anki # Spaced repetition flashcard program
-    exfat # Free exFAT file system implementation
-    libsForQt5.ark # Extract features in Dolphin
+    qbittorrent # torrent client
+    jetbrains.idea-community # Intellij
     bluez # Bluetooth support for Linux
     bluez-tools # CLI for bluez
-    android-file-transfer # MTP client
-    bazel # Build tool
-    jetbrains.idea-community # Intellij
-    jdk # Open-source Java development kit
-    pciutils # Collection of programs for inspecing PCI devices
+    nitrogen # wallpaper browser and setter for X11
+
+    # Scala development
     scala
     sbt
-    bazel
-    gcc
-    sqlite-web
-    silver-searcher # ag: code-searching tool similar to ack, but faster
-    rpi-imager # Raspberry Pi imaging utility
-    coreutils # GNU utilities
+
+    # Clojure development
+    clojure # lisp dialect for JVM
+    leiningen # project automation for Clojure
 
     # Ricing
     neofetch # System info script for ricing
@@ -183,7 +173,6 @@
     "spotify"
     "spotify-unwrapped"
     "zoom"
-    "plexmediaserver"
     "nvidia-x11"
     "nvidia-settings"
   ];
@@ -204,20 +193,6 @@
   # available at localhost:9117
   services.jackett = {
     enable = true;
-  };
-
-  services.plex = {
-    enable = true;
-    openFirewall = true;
-  };
-
-  services.calibre-web = {
-    enable = true;
-    group = "media";
-    listen.port = 8083;
-    options.enableBookUploading = true;
-    options.enableBookConversion = true;
-    options.calibreLibrary = "/media-srv/ebooks";
   };
 
   # Screen color temperature manager.
