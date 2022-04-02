@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration";
+  description = "NixOS configurations";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -7,18 +7,33 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
-  outputs = { self, home-manager, nixpkgs, emacs-overlay, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ({ ... }: { nixpkgs.overlays = [ emacs-overlay.overlay ]; })
-        ./system/configuration.nix
-        home-manager.nixosModules.home-manager {
+  outputs = { self, home-manager, nixpkgs, emacs-overlay, ... }:
+    let
+      mkHomeManagerConfig = { extraSpecialArgs ? {}, usersConfig }:
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.takamura = import ./home/home.nix;
-        }
-      ];
-    };
-  };
+          home-manager.extraSpecialArgs = extraSpecialArgs;
+          home-manager.users = usersConfig;
+        };
+
+      mkSystem = system: { modules }:
+        nixpkgs.lib.nixosSystem {
+          inherit system modules;
+        };
+    in
+      {
+        nixosConfigurations = {
+          nixos = mkSystem "x86_64-linux" {
+            modules = [
+              ./hosts/nixos
+              home-manager.nixosModules.home-manager
+              (mkHomeManagerConfig {
+                extraSpecialArgs = { inherit emacs-overlay; };
+                usersConfig.takamura = import ./users/takamura;
+              })
+            ];
+          };
+        };
+      };
 }

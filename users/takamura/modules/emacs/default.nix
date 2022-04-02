@@ -1,8 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, emacs-overlay, ... }:
+let
+  emacs-packages = emacs-overlay.overlay pkgs pkgs;
+in
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsGcc;
+    package = emacs-packages.emacsGcc;
   };
 
   # to get the rev and sha256

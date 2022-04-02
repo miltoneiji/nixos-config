@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   dmenu = pkgs.dmenu.overrideAttrs (oldAttrs: rec {
@@ -10,7 +10,7 @@ let
   });
 in
   {
-    home.packages = [
+    environment.systemPackages = [
       dmenu
     ];
   }
