@@ -28,7 +28,11 @@
     userName = "Milton Eiji Takamura";
     userEmail = "miltontakamura@gmail.com";
     delta.enable = true;
-    ignores = [ "*.swp" ];
+    ignores = [ "*.swp" ".#*" "\\#*#" ];
+    extraConfig = {
+      init.defaultBranch = "main";
+      push.default = "current";
+    };
   };
 
   programs.fzf = {
