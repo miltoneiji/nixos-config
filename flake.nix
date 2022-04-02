@@ -34,6 +34,17 @@
               })
             ];
           };
+
+          laptop = mkSystem "x86_64-linux" {
+            modules = [
+              ./hosts/laptop
+              home-manager.nixosModules.home-manager
+              (mkHomeManagerConfig {
+                extraSpecialArgs = { inherit emacs-overlay; };
+                usersConfig.takamura = import ./users/takamura;
+              })
+            ];
+          };
         };
       };
 }

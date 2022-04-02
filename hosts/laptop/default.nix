@@ -14,15 +14,9 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = true;
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  networking.hostName = "nixos";
+  networking.hostName = "laptop";
   networking.networkmanager.enable = true;
-
-  # I don't need Internet to boot my pc
-  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
@@ -42,11 +36,9 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp6s0.useDHCP = false;
-  networking.interfaces.wlp5s0.useDHCP = true;
+  networking.interfaces.enp1s0.useDHCP = true;
+  networking.interfaces.wlp0s20f3.useDHCP = true;
 
-  # Create services `openvpn-dublin`, `openvpn-madrid`, etc
-  # Usage: `systemctl start openvpn-<location>`
   services.vpn = {
     enable = true;
   };
@@ -61,7 +53,6 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" ];
 
     # Enable the Plasma 5 Desktop Environment.
     desktopManager.plasma5.enable = true;
@@ -105,20 +96,17 @@
     pulse.enable = true;
   };
 
-  # Group that I use to manage my media
-  users.groups.media = {};
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.takamura = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "plex" "media" ];
+    extraGroups = [ "wheel" "networkmanager" "plex" ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git-crypt # Transparent file encryption in git
     wget # Tool for retrieving files using HTTP, HTTPS, and FTP
     nix-prefetch-scripts # To obtain source hashes
     arandr # visual front end for xrandr
@@ -158,25 +146,11 @@
     bluez # Bluetooth support for Linux
     bluez-tools # CLI for bluez
     android-file-transfer # MTP client
+    neofetch # System info script for ricing
+    gotop # graphical activity monitor for ricing
     bazel # Build tool
     jetbrains.idea-community # Intellij
     jdk # Open-source Java development kit
-    pciutils # Collection of programs for inspecing PCI devices
-    scala
-    sbt
-    bazel
-    gcc
-    sqlite-web
-    silver-searcher # ag: code-searching tool similar to ack, but faster
-    rpi-imager # Raspberry Pi imaging utility
-    coreutils # GNU utilities
-
-    # Ricing
-    neofetch # System info script for ricing
-    cmatrix # Simulates the display from "The Matrix"
-    gotop # graphical activity monitor for ricing
-    tty-clock # Digital clock in ncurses
-    cava # Console-based Audio Visualizer for Alsa
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -184,8 +158,6 @@
     "spotify-unwrapped"
     "zoom"
     "plexmediaserver"
-    "nvidia-x11"
-    "nvidia-settings"
   ];
 
   # This fixes 'blank' windows when opening Intellij
@@ -200,6 +172,16 @@
     nanum-gothic-coding
   ];
 
+  # Control screen brightness via hotkeys.
+  programs.light.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+    ];
+  };
+
   # Torrent indexer service.
   # available at localhost:9117
   services.jackett = {
@@ -209,15 +191,6 @@
   services.plex = {
     enable = true;
     openFirewall = true;
-  };
-
-  services.calibre-web = {
-    enable = true;
-    group = "media";
-    listen.port = 8083;
-    options.enableBookUploading = true;
-    options.enableBookConversion = true;
-    options.calibreLibrary = "/media-srv/ebooks";
   };
 
   # Screen color temperature manager.
