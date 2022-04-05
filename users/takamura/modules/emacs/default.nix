@@ -15,13 +15,14 @@ in
     source = pkgs.fetchFromGitHub {
       owner = "miltoneiji";
       repo = "emacs.d";
-      rev = "9142cc43ccc8a9956a881c6d287f13fae57cf724";
-      sha256 = "117ib12xqgwxdgf0nrlvrc840cl2z9j6i2bjqwcll2jbqnhx2gib";
+      rev = "78bf112c5da4511208f8d0141efb302c147a7a7a";
+      sha256 = "0lz4zc08yf8m1ci5zr8fzhv6xfa9fc8pkbhy2l27kqc5v76ys71n";
     };
   };
 
   home.packages = with pkgs; [
     fd
     silver-searcher
+    metals # language server for scala
   ];
 }
