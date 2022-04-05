@@ -15,8 +15,8 @@ in
     source = pkgs.fetchFromGitHub {
       owner = "miltoneiji";
       repo = "emacs.d";
-      rev = "78bf112c5da4511208f8d0141efb302c147a7a7a";
-      sha256 = "0lz4zc08yf8m1ci5zr8fzhv6xfa9fc8pkbhy2l27kqc5v76ys71n";
+      rev = "cfbbba6448ec4cf20e089ccd95a3dff7887cdd8e";
+      sha256 = "1wbj17h50pd8lplvzj6g7249aijyvgbg9ri6vmis0zzd5svxa9rk";
     };
   };
 
