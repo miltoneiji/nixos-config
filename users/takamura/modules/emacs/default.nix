@@ -8,8 +8,8 @@ in
     package = emacs-packages.emacsGcc;
   };
 
-  # to get the rev and sha256
-  # nix-prefetch-git https://github.com/miltoneiji/emacs.d
+  # Update instructions:
+  #   In this directory, run ./update.sh
   home.file.".emacs.d" = {
     recursive = true;
     source = pkgs.fetchFromGitHub {
