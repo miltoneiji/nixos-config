@@ -158,6 +158,8 @@
     bluez-tools # CLI for bluez
     nitrogen # wallpaper browser and setter for X11
 
+    spark2
+
     # Scala development
     scala
     sbt

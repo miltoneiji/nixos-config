@@ -112,6 +112,10 @@
       vim-airline
       vim-sensible
       vim-nix
+      vim-scala
+      vim-ruby
+      vim-yaml
+      fzf-vim
     ];
   };
 
