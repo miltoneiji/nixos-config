@@ -1,20 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should manage.
+  imports = [
+    ../modules/vim.nix
+    ../modules/git.nix
+  ];
+
   home.username = "takamura";
   home.homeDirectory = "/home/takamura";
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Milton Eiji Takamura";
-    userEmail = "miltontakamura@gmail.com";
-    ignores = [ "*.swp" ];
-  };
 
   programs.fzf = {
     enable = true;
@@ -36,24 +29,6 @@
     shellAliases = {
       p = "cd $(fd . '/home/takamura/repos/' -d 1 -i | fzf)";
     };
-  };
-
-  programs.vim = {
-    enable = true;
-    settings = {
-      tabstop = 2;
-      shiftwidth = 2;
-      expandtab = true;
-      number = true;
-      ignorecase = true;
-    };
-    extraConfig = "inoremap jk <esc>";
-    plugins = with pkgs.vimPlugins; [
-      nerdtree
-      vim-airline
-      vim-sensible
-      vim-nix
-    ];
   };
 
   # This value determines the Home Manager release that your configuration is compatible

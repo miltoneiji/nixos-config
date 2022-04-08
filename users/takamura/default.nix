@@ -4,7 +4,9 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./modules/emacs/default.nix
+    ../modules/emacs
+    ../modules/vim.nix
+    ../modules/git.nix
   ];
 
   home.username = "takamura";
@@ -15,22 +17,6 @@
   home.file.".scripts" = {
     source = ./scripts;
     recursive = true;
-  };
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Milton Eiji Takamura";
-    userEmail = "miltontakamura@gmail.com";
-    delta.enable = true;
-    ignores = [ "*.swp" ".#*" "\\#*#" ];
-    extraConfig = {
-      init.defaultBranch = "main";
-      push.default = "current";
-    };
   };
 
   programs.fzf = {
@@ -93,30 +79,6 @@
         fi
       }
     '';
-  };
-
-  programs.vim = {
-    enable = true;
-    settings = {
-      tabstop = 2;
-      shiftwidth = 2;
-      expandtab = true;
-      number = true;
-      ignorecase = true;
-    };
-    extraConfig = ''
-      inoremap jk <esc>
-    '';
-    plugins = with pkgs.vimPlugins; [
-      nerdtree
-      vim-airline
-      vim-sensible
-      vim-nix
-      vim-scala
-      vim-ruby
-      vim-yaml
-      fzf-vim
-    ];
   };
 
   programs.kitty = {
