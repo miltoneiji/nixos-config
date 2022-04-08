@@ -1,18 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
-
   imports = [
     ../modules/emacs
     ../modules/vim.nix
     ../modules/git.nix
   ];
-
-  home.username = "takamura";
-  home.homeDirectory = "/home/takamura";
-
-  home.stateVersion = "21.05";
 
   home.file.".scripts" = {
     source = ./scripts;
@@ -121,4 +114,9 @@
     enable = true;
     enableAliases = true;
   };
+
+  home.username = "takamura";
+  home.homeDirectory = "/home/takamura";
+  home.stateVersion = "21.05";
+  programs.home-manager.enable = true;
 }

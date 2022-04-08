@@ -6,9 +6,6 @@
     ../modules/git.nix
   ];
 
-  home.username = "takamura";
-  home.homeDirectory = "/home/takamura";
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -31,10 +28,8 @@
     };
   };
 
-  # This value determines the Home Manager release that your configuration is compatible
-  # with.
+  home.username = "takamura";
+  home.homeDirectory = "/home/takamura";
   home.stateVersion = "21.11";
-
-  # Let Home manager install and manage itself
   programs.home-manager.enable = true;
 }
