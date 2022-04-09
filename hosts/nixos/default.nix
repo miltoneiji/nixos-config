@@ -9,6 +9,7 @@
       ../../modules/slstatus
       ../../modules/mongosh
       ../../modules/vpn
+      ../../modules/public-ip
     ];
 
   # Use the systemd-boot EFI boot loader.
