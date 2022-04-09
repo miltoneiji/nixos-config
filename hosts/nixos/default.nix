@@ -10,6 +10,7 @@
       ../../modules/mongosh
       ../../modules/vpn
       ../../modules/public-ip
+      ../../modules/tkvolume
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -144,6 +145,7 @@
     android-file-transfer # MTP client
     pciutils # Collection of programs for inspecing PCI devices
     rpi-imager # Raspberry Pi imaging utility
+    pamixer # Pulseaudio command line mixer
 
     firefox # browser
     spotify # music player

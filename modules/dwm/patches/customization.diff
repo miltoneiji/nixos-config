@@ -1,11 +1,11 @@
-commit 16831dcf220e70b819e23bc22cfdb8ef091b7ed9
+commit 58e29a4d53240afed16d793a1a6c85f5cfbb4c11
 Author: Milton Eiji Takamura <miltontakamura@gmail.com>
-Date:   Sun Mar 6 12:07:15 2022 +0000
+Date:   Sat Apr 9 13:34:08 2022 +0100
 
-    Customization
+    customization
 
 diff --git a/config.def.h b/config.def.h
-index fa39731..bd153af 100644
+index fa39731..e7e4826 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -1,36 +1,38 @@
@@ -87,14 +87,14 @@ index fa39731..bd153af 100644
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -65,40 +67,59 @@ static const Layout layouts[] = {
+@@ -65,40 +67,57 @@ static const Layout layouts[] = {
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
 +/* sound control */
-+static const char *upvol[]   = { "pactl", "set-sink-volume", "0", "+5%",    NULL };
-+static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",    NULL };
-+static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle", NULL };
++static const char *upvol[]   = { "pamixer", "--increase", "5", NULL };
++static const char *downvol[] = { "pamixer", "--decrease", "5", NULL };
++static const char *mutevol[] = { "pamixer", "--toggle-mute", NULL };
 +
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -104,7 +104,6 @@ index fa39731..bd153af 100644
 +static const char *termcmd[]  = { "kitty", NULL };
 +static const char *programscmd[] = { "/home/takamura/.scripts/programs", NULL };
 +static const char *powercmd[] = { "/home/takamura/.scripts/power", NULL };
-+static const char *screenshotcmd[] = { "flameshot", "screen", "-p", "/home/takamura/Pictures/screenshots", NULL  };
  
  static Key keys[] = {
  	/* modifier                     key        function        argument */
@@ -142,7 +141,6 @@ index fa39731..bd153af 100644
 +	{ MODKEY,                       XK_w,      zoom,           {0} },
 +	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 +	{ MODKEY,                       XK_Delete, spawn,          {.v = powercmd } },
-+  { 0,                            XK_Print,  spawn,          {.v = screenshotcmd } },
 +
 +  /* sound control */
 +  { 0,                           XF86XK_AudioLowerVolume,    spawn, {.v = downvol} },
@@ -171,7 +169,7 @@ index fa39731..bd153af 100644
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -108,7 +129,6 @@ static Key keys[] = {
+@@ -108,7 +127,6 @@ static Key keys[] = {
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
