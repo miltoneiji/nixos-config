@@ -164,6 +164,7 @@
     spark2
 
     # Scala development
+    jdk
     scala
     sbt
 
