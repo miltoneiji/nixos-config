@@ -10,6 +10,7 @@
     extraConfig = {
       init.defaultBranch = "main";
       push.default = "current";
+      pull.rebase = false;
     };
   };
 }

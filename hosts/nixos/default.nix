@@ -206,6 +206,12 @@
     enable = true;
   };
 
+  services.jellyfin = {
+    enable = true;
+    group = "media";
+    openFirewall = true;
+  };
+
   # Screen color temperature manager.
   services.redshift = {
     enable = true;
