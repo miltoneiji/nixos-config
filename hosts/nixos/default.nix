@@ -160,6 +160,7 @@
     bluez # Bluetooth support for Linux
     bluez-tools # CLI for bluez
     nitrogen # wallpaper browser and setter for X11
+    hledger
 
     spark2
 

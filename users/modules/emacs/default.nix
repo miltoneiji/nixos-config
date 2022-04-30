@@ -15,8 +15,8 @@ in
     source = pkgs.fetchFromGitHub {
       owner = "miltoneiji";
       repo = "emacs.d";
-      rev = "00c0e97fad8bde90cb786e7b739811ad29647a4d";
-      sha256 = "00n4vly0dz8nz1aq9j54qkkbbdn2s777rpwbhk9kb76ni7q5wxmm";
+      rev = "cb00b3bdd12fcf93a9c77fef99ef21153d9b79b0";
+      sha256 = "1x9iwrnmnqr397pirzgyhr177xnl25gvchlcch0417pfhys5cspk";
     };
   };
 
@@ -24,5 +24,6 @@ in
     fd
     silver-searcher
     metals # language server for scala
+    ledger
   ];
 }
