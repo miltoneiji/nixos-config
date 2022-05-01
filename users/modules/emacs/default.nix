@@ -25,5 +25,6 @@ in
     silver-searcher
     metals # language server for scala
     ledger
+    xclip # Tool to access the X clipboard from a console application
   ];
 }
