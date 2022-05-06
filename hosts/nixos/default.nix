@@ -146,6 +146,7 @@
     pciutils # Collection of programs for inspecing PCI devices
     rpi-imager # Raspberry Pi imaging utility
     pamixer # Pulseaudio command line mixer
+    flameshot # Screenshot software
 
     firefox # browser
     spotify # music player
